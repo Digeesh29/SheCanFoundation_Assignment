@@ -104,13 +104,13 @@
                 <form id="contactForm" novalidate>
                     <label for="name">Full Name <span class="required">*</span></label>
                     <div class="input-wrap">
-                        <input type="text" id="name" name="name" placeholder="Jane Doe" autocomplete="name">
+                        <input type="text" id="name" name="name" placeholder="Name" autocomplete="name">
                         <span class="field-error" id="nameError"></span>
                     </div>
 
                     <label for="email">Email Address <span class="required">*</span></label>
                     <div class="input-wrap">
-                        <input type="email" id="email" name="email" placeholder="jane@example.com" autocomplete="email">
+                        <input type="email" id="email" name="email" placeholder="Email" autocomplete="email">
                         <span class="field-error" id="emailError"></span>
                     </div>
 
@@ -183,12 +183,73 @@
     </a>
 </div>
 
+<!-- Admin Popup -->
+<div id="adminPopup" style="
+    position: fixed; bottom: 28px; left: 28px; z-index: 999;
+    background: white;
+    border: 1px solid #e5e7eb;
+    color: #111827; border-radius: 16px; padding: 18px 22px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1), 0 4px 12px rgba(0,0,0,0.06);
+    max-width: 260px; width: calc(100vw - 56px);
+    transform: translateY(120px); opacity: 0;
+    transition: transform 0.5s cubic-bezier(0.34,1.56,0.64,1), opacity 0.4s ease;
+    font-family: 'Inter', sans-serif;
+">
+    <button onclick="document.getElementById('adminPopup').style.display='none'" style="
+        position: absolute; top: 10px; right: 12px;
+        background: #f3f4f6; border: none; color: #6b7280;
+        width: 22px; height: 22px; border-radius: 50%; cursor: pointer;
+        font-size: 13px; display: flex; align-items: center; justify-content: center;
+    ">✕</button>
+
+    <div style="display:flex; align-items:center; gap:10px; margin-bottom:10px;">
+        <div style="
+            width: 36px; height: 36px;
+            background: linear-gradient(135deg, #111827, #4c1d95);
+            border-radius: 10px; display:flex; align-items:center; justify-content:center; flex-shrink:0;
+        ">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="11" width="18" height="11" rx="2"/>
+                <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+            </svg>
+        </div>
+        <div>
+            <div style="font-size:11px; color:#6b7280; text-transform:uppercase; letter-spacing:0.8px; margin-bottom:2px;">Admin Access</div>
+            <div style="font-size:14px; font-weight:700; letter-spacing:-0.3px;">View Messages</div>
+        </div>
+    </div>
+
+    <p style="font-size:12px; color:#6b7280; line-height:1.5; margin-bottom:14px;">
+        See all contact submissions in the admin dashboard.
+    </p>
+
+    <a href="/admin" style="
+        display: flex; align-items: center; justify-content: center; gap: 8px;
+        background: linear-gradient(135deg, #111827, #4c1d95); color: white;
+        padding: 10px 16px; border-radius: 8px;
+        font-size: 13px; font-weight: 700; text-decoration: none;
+        transition: transform 0.15s ease, box-shadow 0.15s ease;
+    " onmouseover="this.style.transform='translateY(-1px)';this.style.boxShadow='0 6px 16px rgba(76,29,149,0.3)'"
+       onmouseout="this.style.transform='';this.style.boxShadow=''">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/>
+        </svg>
+        Open Admin Panel
+    </a>
+</div>
+
 <script>
     setTimeout(() => {
         const p = document.getElementById('ghPopup');
         p.style.transform = 'translateY(0)';
         p.style.opacity = '1';
     }, 1800);
+
+    setTimeout(() => {
+        const a = document.getElementById('adminPopup');
+        a.style.transform = 'translateY(0)';
+        a.style.opacity = '1';
+    }, 2400)
 </script>
 </body>
 </html>

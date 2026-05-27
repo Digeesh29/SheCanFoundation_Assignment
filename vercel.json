@@ -1,21 +1,8 @@
 {
   "version": 2,
-  "routes": [
-    {
-      "src": "/api/contact",
-      "dest": "/api/contact.js"
-    },
-    {
-      "src": "/api/messages",
-      "dest": "/api/messages.js"
-    },
-    {
-      "src": "/admin",
-      "dest": "/admin.html"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/$1"
-    }
+  "rewrites": [
+    { "source": "/api/contact", "destination": "/api/contact.js" },
+    { "source": "/api/messages", "destination": "/api/messages.js" },
+    { "source": "/admin", "destination": "/admin.html" }
   ]
 }
